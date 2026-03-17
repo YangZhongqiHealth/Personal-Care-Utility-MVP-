@@ -13,3 +13,6 @@ __pycache__/
 
 # Private or non-redistributable reference files
 /docs/references/*.pdf
+
+# Local duplicate of tracked demo asset
+/pcu_demo_playback.pdf
