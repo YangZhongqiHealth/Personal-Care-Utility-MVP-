@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PCU MVP Playback</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <div class="title">PCU Dataflow Explorer</div>
+        <div class="subtitle">Type II diabetes management · investor MVP playback</div>
+      </div>
+      <div class="meta" id="meta"></div>
+    </header>
+
+    <section class="controls">
+      <div class="time-panel">
+        <div class="analog-clock" aria-label="Timeline clock">
+          <div class="clock-face"></div>
+          <div class="clock-hand hour" id="clock-hour"></div>
+          <div class="clock-hand minute" id="clock-minute"></div>
+          <div class="clock-hand second" id="clock-second"></div>
+          <div class="clock-center"></div>
+        </div>
+        <div class="time-readout">
+          <div class="timestamp" id="timestamp"></div>
+          <div class="clock-subtitle" id="clock-subtitle"></div>
+        </div>
+      </div>
+      <div class="buttons">
+        <button id="prev">Prev</button>
+        <button id="next" class="primary">Next</button>
+        <button id="prev-day">Prev Day</button>
+        <button id="next-day">Next Day</button>
+        <input id="jump-input" type="datetime-local" />
+        <button id="jump-ts">Jump to Timestamp</button>
+        <button id="jump-event">Next Event</button>
+        <button id="jump-insight">Next Insight</button>
+      </div>
+    </section>
+    <section class="dataset-note">
+      Current dataset input coverage: <strong>Objective Data only</strong>. Subjective, Inferred, and Conversation Aquired inputs are intentionally empty for this MVP run.
+    </section>
+
+    <main class="paper-layout" id="paper-layout">
+      <svg class="planner-flow-overlay" id="planner-flow-overlay" aria-hidden="true"></svg>
+      <section class="flow-column flow-data">
+        <div class="lane-title">Data Inputs</div>
+        <div class="card data-node" id="node-objective">
+          <h2>Objective Data</h2>
+          <div class="data-icon" aria-hidden="true">⌚</div>
+          <div class="list" id="objective-data"></div>
+        </div>
+        <div class="card data-node" id="node-subjective">
+          <h2>Subjective Data</h2>
+          <div class="data-icon" aria-hidden="true">📝</div>
+          <div class="list" id="subjective-data"></div>
+        </div>
+        <div class="card data-node" id="node-inferred">
+          <h2>Inferred Data</h2>
+          <div class="data-icon" aria-hidden="true">🎙️</div>
+          <div class="list" id="inferred-data"></div>
+        </div>
+        <div class="card data-node" id="node-conversation">
+          <h2>Conversation Aquired Data</h2>
+          <div class="data-icon" aria-hidden="true">💬</div>
+          <div class="list" id="conversation-data"></div>
+        </div>
+      </section>
+
+      <section class="flow-column flow-sense">
+        <div class="lane-title">Sensing and Inference</div>
+        <div class="card personicle-super-node" id="node-personicle">
+          <h2>Personicle Engine</h2>
+          <div class="personicle-stack">
+            <div class="card component-node event-node personicle-child" id="node-event">
+              <h2>Event Extraction</h2>
+              <div id="event-output" class="component-work">Output: -</div>
+              <div class="card nested-card" id="time-card"></div>
+              <div class="personicle-subsystems" aria-label="Personicle Engine Internal Components">
+                <div class="personicle-module" id="personicle-ml-module">
+                  <div class="personicle-module-title">Personal Machine Learning Model</div>
+                  <div class="personicle-module-status" id="personicle-ml-status">Standby</div>
+                  <div class="personicle-module-copy" id="personicle-ml-detail">Predicts daily loneliness level at wake-up and runs daytime loneliness monitoring checks.</div>
+                </div>
+                <div class="personicle-module" id="personicle-causal-module">
+                  <div class="personicle-module-title">Personal Causal Analysis</div>
+                  <div class="personicle-module-status" id="personicle-causal-status">Standby</div>
+                  <div class="personicle-module-copy" id="personicle-causal-detail">On each meal log, estimates counterfactual glucose trajectory for alternative food/activity choices.</div>
+                </div>
+              </div>
+            </div>
+            <div class="card component-node personicle-child" id="node-state">
+              <h2>State Estimation Module</h2>
+              <div id="state-output" class="component-work">Output: -</div>
+              <div class="card nested-card" id="state"></div>
+              <div class="card nested-card" id="decision"></div>
+            </div>
+            <div class="card component-node personicle-child" id="node-context">
+              <h2>Contextual Inference Engine</h2>
+              <div id="context-output" class="component-work">Output: -</div>
+            </div>
+            <div class="card component-node personicle-child" id="node-knowledge">
+              <h2>Knowledge Base</h2>
+              <div id="knowledge-output" class="component-work">Output: -</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="flow-column flow-decide">
+        <div class="lane-title">Central Planning</div>
+        <div class="card component-node orchestration-node" id="node-orchestration">
+          <h2>Orchestration Layer</h2>
+          <div class="orchestrator-core">
+            <span class="agent-badge agent-top" id="agent-diabetes" data-agent="Diabetes Agent">Diabetes Agent</span>
+            <span class="agent-badge agent-left" data-agent="Wellness Agent">Wellness Agent</span>
+            <span class="agent-badge agent-right" data-agent="Medical Agent">Medical Agent</span>
+            <span class="agent-badge agent-bottom" id="agent-sleep" data-agent="Sleep Expert Agent">Sleep Expert Agent</span>
+            <div class="core-label">Multi Agent Orchestrator</div>
+          </div>
+          <div id="orchestration-output" class="component-work">Output: -</div>
+        </div>
+        <div class="card component-node" id="node-guidance">
+          <h2>Guidance Generator</h2>
+          <div id="guidance-output" class="component-work">Output: -</div>
+        </div>
+      </section>
+
+      <section class="flow-column flow-deliver">
+        <div class="lane-title">Safety and Delivery</div>
+        <div class="card component-node guardian-node" id="node-guardian">
+          <div class="guardian-shell">
+            <div class="guardian-content">
+              <h2>Guardian Agent</h2>
+              <div id="guardian-status" class="guardian-status">Safety Gate: Pending</div>
+              <div id="guardian-output" class="guardian-work">Output: -</div>
+            </div>
+          </div>
+        </div>
+        <div class="card component-node interface-node" id="node-interface">
+          <h2>Interfacing Layer</h2>
+          <div class="interface-tools">
+            <button class="iface-btn active" id="iface-chatbot" type="button">Chatbot</button>
+            <button class="iface-btn" id="iface-dashboard" type="button">Dashboard</button>
+            <button class="iface-btn" id="iface-caregiver" type="button">Caregiver portal</button>
+          </div>
+          <div id="interface-component-output" class="component-work">Output: -</div>
+          <div class="card nested-card" id="output"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

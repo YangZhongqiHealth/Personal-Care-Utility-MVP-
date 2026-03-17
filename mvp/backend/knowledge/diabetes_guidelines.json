@@ -1,0 +1,56 @@
+[
+  {
+    "id": "ADA-SOC-2026-REC-5.34",
+    "title": "ADA 2026: Baseline Activity and Break Up Sedentary Time",
+    "summary": "Evaluate baseline activity/sedentary time and counsel people with diabetes to interrupt prolonged sitting at least every 30 minutes.",
+    "tags": ["exercise", "post_meal", "diabetes_general"],
+    "guideline_name": "Standards of Care in Diabetes-2026",
+    "source": "American Diabetes Association Professional Practice Committee, Section 5 Recommendation 5.34",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12690188/"
+  },
+  {
+    "id": "ADA-SOC-2026-REC-5.36",
+    "title": "ADA 2026: Weekly Aerobic Activity Target",
+    "summary": "Most adults with diabetes should perform at least 150 minutes/week of moderate-to-vigorous aerobic activity over 3 or more days, with no more than 2 consecutive inactive days.",
+    "tags": ["exercise", "post_meal", "diabetes_general"],
+    "guideline_name": "Standards of Care in Diabetes-2026",
+    "source": "American Diabetes Association Professional Practice Committee, Section 5 Recommendation 5.36",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12690188/"
+  },
+  {
+    "id": "ADA-SOC-2026-REC-5.56-5.57",
+    "title": "ADA 2026: Sleep Health Screening and Sleep-Promoting Habits",
+    "summary": "Screen for sleep health in people with (or at risk for) diabetes and counsel sleep-promoting routines and habits.",
+    "tags": ["sleep", "diabetes_general"],
+    "guideline_name": "Standards of Care in Diabetes-2026",
+    "source": "American Diabetes Association Professional Practice Committee, Section 5 Recommendations 5.56 and 5.57",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12690188/"
+  },
+  {
+    "id": "ADA-SOC-2026-REC-6.3A",
+    "title": "ADA 2026: A1C Goal for Many Nonpregnant Adults",
+    "summary": "An A1C goal of under 7% is appropriate for many nonpregnant adults, individualized to hypoglycemia risk, comorbidities, and treatment burden.",
+    "tags": ["diabetes_general", "glucose_state", "post_meal"],
+    "guideline_name": "Standards of Care in Diabetes-2026",
+    "source": "American Diabetes Association Professional Practice Committee, Section 6 Recommendation 6.3a",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12690178/"
+  },
+  {
+    "id": "ADA-SOC-2026-TABLE-6.3",
+    "title": "ADA 2026: Peak Postprandial Glucose Target",
+    "summary": "For many nonpregnant adults, a typical peak postprandial capillary glucose target is under 180 mg/dL (measured about 1-2 hours after meal start).",
+    "tags": ["post_meal", "glucose_state"],
+    "guideline_name": "Standards of Care in Diabetes-2026",
+    "source": "American Diabetes Association Professional Practice Committee, Section 6 Table 6.3",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12690178/"
+  },
+  {
+    "id": "ADA-SOC-2026-REC-6.15",
+    "title": "ADA 2026: Hypoglycemia Immediate Treatment",
+    "summary": "For conscious individuals with glucose under 70 mg/dL, use fast-acting glucose/carbohydrate and recheck in 15 minutes; repeat treatment if still low.",
+    "tags": ["hypoglycemia", "glucose_state", "exercise"],
+    "guideline_name": "Standards of Care in Diabetes-2026",
+    "source": "American Diabetes Association Professional Practice Committee, Section 6 Recommendation 6.15",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12690178/"
+  }
+]

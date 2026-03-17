@@ -1,0 +1,14 @@
+[project]
+name = "pcu-mvp"
+version = "0.1.0"
+description = "Minimal PCU prototype with a synthetic-data preparation pipeline."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+pcu-mvp-server = "mvp.backend.server:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"

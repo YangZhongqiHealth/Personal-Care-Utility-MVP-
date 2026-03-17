@@ -1,0 +1,15 @@
+.DS_Store
+.idea/
+__pycache__/
+*.pyc
+.venv/
+
+# Local datasets and generated outputs
+/CGMacros-015/
+/mergedataPCU/
+
+# Legacy local prototype data
+/archive/old_pcu_simple_using_tom/
+
+# Private or non-redistributable reference files
+/docs/references/*.pdf
