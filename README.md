@@ -6,6 +6,13 @@ PCU MVP is a minimal end-to-end prototype for a Personal Chronic-care Unit workf
 
 Full UI playback and screenshots: [`docs/demo/playback/pcu_demo_playback.pdf`](docs/demo/playback/pcu_demo_playback.pdf)
 
+## Why This Repo Exists
+
+The goal of this repository is to make the PCU MVP understandable and reproducible from two angles:
+
+- as a runnable systems demo for PCU-style sensing, inference, orchestration, and guidance
+- as a documented synthetic-data pipeline that explains how PCU-ready multimodal inputs were constructed from two real datasets
+
 ## Highlights
 
 - a runnable MVP app under `mvp/`
@@ -23,6 +30,26 @@ The demo represents a PCU workflow with:
 - knowledge-grounded guidance generation
 - orchestration and guardian layers for agent routing and safety framing
 - multiple interface modes, including chatbot, dashboard, and caregiver portal views
+
+The current implementation exposes the same major runtime layers used in the paper-facing PCU framing:
+
+- Event Extraction & Personicle Engine
+- State Estimation Module
+- Contextual Inference Engine
+- Knowledge Base
+- Guidance Generator
+- Orchestration Layer
+- Guardian Agent
+- Interfacing Layer
+
+## What You Can Try
+
+After starting the local server, the demo lets you:
+
+- replay glucose-, activity-, and sleep-centered events through the PCU stack
+- inspect state transitions and risk-oriented outputs meal by meal
+- view recommendation framing across different interface surfaces
+- trace how local knowledge-base entries are surfaced in generated guidance
 
 ## Repository Layout
 
@@ -53,6 +80,14 @@ The demo represents a PCU workflow with:
     └── ui/
 ```
 
+## Repo At A Glance
+
+- `mvp/`: runnable backend and static frontend for the demo
+- `data_pipeline/`: publishable code for matching, warping, and event derivation
+- `docs/`: architecture, demo, provenance, and governance documentation
+- `data/`: reserved space for small sanitized examples
+- `mergedataPCU/`: local-only staging area for raw inputs and generated outputs
+
 ## What Belongs In GitHub
 
 Commit these by default:
@@ -75,7 +110,7 @@ Review the policy in `docs/data-governance.md` before the first public push.
 
 ## Quick Start
 
-### Run the MVP app
+### 1. Run the MVP app
 
 ```bash
 python -m mvp.backend.server --port 8000
@@ -83,13 +118,13 @@ python -m mvp.backend.server --port 8000
 
 Then open `http://localhost:8000/mvp/ui/`.
 
-Try:
+Example:
 
 ```bash
 http://localhost:8000/mvp/ui/?dataset=CGMacros-015
 ```
 
-### Build the synthetic alignment artifacts
+### 2. Build the synthetic alignment artifacts
 
 ```bash
 python data_pipeline/met_day_match_dtw.py
@@ -114,6 +149,15 @@ The pipeline:
 4. derives CGM event labels for each synthetic participant
 
 See `docs/synthetic-data.md` and `data_pipeline/README.md` for the full method and provenance model.
+
+## Current Data Release Boundary
+
+This public repository is code-first and documentation-first.
+
+- included: app code, pipeline code, docs, demo assets, and repo scaffolding
+- excluded by default: raw source datasets, generated full synthetic outputs, and local legacy materials
+
+That separation is intentional. The repository explains how the synthetic dataset was produced without assuming the underlying source datasets can be broadly redistributed in git.
 
 ## Documentation Map
 
